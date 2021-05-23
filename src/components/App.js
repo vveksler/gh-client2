@@ -15,10 +15,10 @@ const initPage = 0;
 const perPage = 4;
 
 const App = () => {
-  const searchInput = useRef(null);
+  const searchInputRef = useRef(null);
 
   const [initialState, setInitialState] = useState(true);
-  const [value, setValue] = useState("");
+
   const [user, setUser] = useState(null);
   const [repos, setRepos] = useState({ data: [], offset: 0 });
 
@@ -28,22 +28,13 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(initPage);
 
   function onSearchClick() {
-    searchInput.current.focus();
-  }
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  async function handleKeyPress(event) {
-    if (event.key === "Enter" && value !== "") {
-      setInitialState(false);
-      await fetchData(value);
-    }
+    searchInputRef.current.focus();
   }
 
   async function fetchData(username) {
     try {
+      setInitialState(false);
+
       setLoadingUserInfo(true);
       setLoadingUserRepos(true);
       const user = await octokit.request("GET /users/{username}", {
@@ -55,7 +46,6 @@ const App = () => {
       }
       setLoadingUserInfo(false);
 
-      setCurrentPage(initPage);
       const repos = await octokit.request("GET /users/{username}/repos", {
         username: username,
         per_page: perPage,
@@ -64,6 +54,7 @@ const App = () => {
 
       if (repos && repos.data) {
         setRepos({ data: repos.data });
+        setCurrentPage(initPage);
       }
       setLoadingUserRepos(false);
     } catch (error) {
@@ -137,11 +128,7 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <Header
-        searchInput={searchInput}
-        handleChange={handleChange}
-        handleKeyPress={handleKeyPress}
-      />
+      <Header searchInputRef={searchInputRef} fetchData={fetchData} />
       <div className="app-main">{renderMainSection()}</div>
     </div>
   );
