@@ -2,6 +2,7 @@
   "name": "gh-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://vveksler.github.io/gh-simple-app",
   "dependencies": {
     "@octokit/rest": "^18.5.3",
     "@testing-library/jest-dom": "^5.11.4",

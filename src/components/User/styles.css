@@ -5,6 +5,7 @@
 }
 
 .app-user__content {
+  position: relative;
   display: flex;
   flex: 1;
 }
@@ -14,5 +15,9 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+  }
+
+  .app-user__content {
+    min-height: 200px;
   }
 }

@@ -55,10 +55,11 @@ const App = () => {
       }
       setLoadingUserInfo(false);
 
+      setCurrentPage(initPage);
       const repos = await octokit.request("GET /users/{username}/repos", {
         username: username,
         per_page: perPage,
-        page: 1,
+        page: currentPage + 1,
       });
 
       if (repos && repos.data) {
