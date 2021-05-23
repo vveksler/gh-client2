@@ -1,5 +1,6 @@
 .app-user-info {
   position: relative;
+  min-width: 320px;
   padding: 0 4%;
   margin-right: 2%;
 }
@@ -64,6 +65,7 @@
   .app-user-info {
     margin-bottom: 10%;
     margin-right: 0;
+    min-height: 200px;
   }
 
   .app-user-info__content {
