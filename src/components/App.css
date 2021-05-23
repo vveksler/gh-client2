@@ -1,0 +1,30 @@
+.app-main {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.app-main__search {
+  cursor: pointer;
+}
+
+.app-main__user-not-found,
+.app-main__search {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-main__text {
+  color: #808080;
+  text-align: center;
+  width: 240px;
+  font-size: 22px;
+  margin-top: 46px;
+}

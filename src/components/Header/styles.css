@@ -1,0 +1,12 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  background-color: #0064EB;
+  padding: 0 2%;
+}
+
+.app-header__input {
+  margin-left: 22px;
+  flex: 1;
+}
