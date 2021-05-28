@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./styles.css";
 
@@ -16,6 +17,12 @@ const ReposItem = ({ name, description, html_url }) => {
       <div className="app-user-repos__desc">{description}</div>
     </li>
   );
+};
+
+ReposItem.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  html_url: PropTypes.string,
 };
 
 export default ReposItem;

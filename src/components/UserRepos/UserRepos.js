@@ -1,28 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactPaginate from "react-paginate";
+
+// components
 import Loader from "../Loader";
 import ReposItem from "../ReposItem";
 
+// icons
 import empty from "../../assets/icons/empty.svg";
 
 import "./styles.css";
 
 const UserRepos = ({
-  login,
-  data,
+  repos: { data },
   public_repos,
-  currentPage,
   perPage,
-  onChangeOffset,
-  onPageChange,
+  currentPage,
+  fetchReposPerPage,
   loadinState,
 }) => {
   const handlePageClick = (page) => {
-    const selected = page.selected + 1;
-    const offset = Math.ceil(selected * perPage);
-
-    onChangeOffset(login, offset, selected);
-    onPageChange(selected - 1);
+    fetchReposPerPage(page.selected);
   };
 
   if (loadinState) {
@@ -72,6 +70,17 @@ const UserRepos = ({
       </div>
     </div>
   );
+};
+
+UserRepos.propTypes = {
+  repos: PropTypes.shape({
+    data: PropTypes.array,
+  }),
+  public_repos: PropTypes.number,
+  perPage: PropTypes.number,
+  currentPage: PropTypes.number,
+  fetchReposPerPage: PropTypes.func,
+  loadinState: PropTypes.bool,
 };
 
 export default UserRepos;

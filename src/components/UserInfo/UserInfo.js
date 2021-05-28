@@ -1,10 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+// components
 import Loader from "../Loader";
 
 import "./styles.css";
 
-const UserInfo = ({ user, loadinState }) => {
-  const { name, login, avatar_url, html_url, followers, following } = user;
+const UserInfo = ({
+  name,
+  login,
+  avatar_url,
+  html_url,
+  followers,
+  following,
+  loadinState,
+}) => {
   const kFormatter = (num) => {
     return Math.abs(num) > 999
       ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
@@ -49,6 +59,16 @@ const UserInfo = ({ user, loadinState }) => {
       )}
     </div>
   );
+};
+
+UserInfo.propTypes = {
+  name: PropTypes.string,
+  login: PropTypes.string,
+  avatar_url: PropTypes.string,
+  html_url: PropTypes.string,
+  followers: PropTypes.number,
+  following: PropTypes.number,
+  loadinState: PropTypes.bool,
 };
 
 export default UserInfo;

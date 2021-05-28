@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
+// components
 import Input from "../Input";
+
+// icons
 import github from "../../assets/icons/github.svg";
 
 import "./styles.css";
@@ -36,6 +40,14 @@ const Header = ({ searchInputRef, fetchData }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  searchInputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
+  fetchData: PropTypes.func,
 };
 
 export default Header;
