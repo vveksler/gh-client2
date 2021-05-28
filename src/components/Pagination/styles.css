@@ -1,0 +1,35 @@
+/* react-paginate custom styles */
+
+.pagination {
+  display: flex;
+  align-items: center;
+}
+
+ul.pagination li {
+  cursor: pointer;
+  color: #808080;
+  margin-right: 16px;
+}
+
+ul.pagination li.active {
+  color: white;
+  background-color: #0064EB;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+ul.pagination li.next,
+ul.pagination li.previous {
+  font-weight: bold;
+  color: #0064EB;
+}
+
+ul.pagination li.next {
+  margin-right: 0;
+}
+
+ul.pagination li.disabled {
+  cursor: default;
+  color: #808080;
+}

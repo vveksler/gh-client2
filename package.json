@@ -4,11 +4,13 @@
   "private": true,
   "homepage": "http://vveksler.github.io/gh-simple-app",
   "dependencies": {
+    "@octokit/auth-token": "^2.4.5",
     "@octokit/rest": "^18.5.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "node-sass": "^6.0.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-paginate": "^7.1.2",

@@ -1,30 +1,24 @@
 import React from "react";
-import ReactPaginate from "react-paginate";
-import Loader from "../Loader";
-import ReposItem from "../ReposItem";
+import PropTypes from "prop-types";
 
+// components
+import ReposItem from "../ReposItem";
+import Pagination from "../Pagination";
+import Loader from "../Loader";
+
+// icons
 import empty from "../../assets/icons/empty.svg";
 
 import "./styles.css";
 
 const UserRepos = ({
-  login,
-  data,
+  repos: { data },
   public_repos,
-  currentPage,
   perPage,
-  onChangeOffset,
-  onPageChange,
+  currentPage,
+  fetchReposPerPage,
   loadinState,
 }) => {
-  const handlePageClick = (page) => {
-    const selected = page.selected + 1;
-    const offset = Math.ceil(selected * perPage);
-
-    onChangeOffset(login, offset, selected);
-    onPageChange(selected - 1);
-  };
-
   if (loadinState) {
     return <Loader />;
   }
@@ -58,20 +52,26 @@ const UserRepos = ({
         </>
       )}
       <div className="app-user-repos__pagination">
-        <ReactPaginate
-          forcePage={currentPage}
-          marginPagesDisplayed={0}
-          pageRangeDisplayed={perPage}
-          previousLabel={"<"}
-          nextLabel={">"}
-          pageCount={public_repos / perPage}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          activeClassName={"active"}
+        <Pagination
+          currentPage={currentPage}
+          perPage={perPage}
+          public_repos={public_repos}
+          fetchReposPerPage={fetchReposPerPage}
         />
       </div>
     </div>
   );
+};
+
+UserRepos.propTypes = {
+  repos: PropTypes.shape({
+    data: PropTypes.array,
+  }),
+  public_repos: PropTypes.number,
+  perPage: PropTypes.number,
+  currentPage: PropTypes.number,
+  fetchReposPerPage: PropTypes.func,
+  loadinState: PropTypes.bool,
 };
 
 export default UserRepos;

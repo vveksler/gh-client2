@@ -1,11 +1,4 @@
 .app-user-info {
-  position: relative;
-  min-width: 320px;
-  padding: 0 4%;
-  margin-right: 2%;
-}
-
-.app-user-info__content {
   display: flex;
   flex-direction: column;
 }

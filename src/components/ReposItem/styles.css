@@ -1,4 +1,4 @@
-.app-user-repos__item {
+.app-repos-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,13 +8,13 @@
   margin-bottom: 24px;
 }
 
-.app-user-repos__link {
+.app-repos-item__link {
   font-size: 24px;
   color: #0064EB;
   margin-bottom: 16px;
 }
 
-.app-user-repos__desc {
+.app-repos-item__desc {
   font-size: 16px;
   color: black;
 }

@@ -4,9 +4,14 @@
   padding: 2%;
 }
 
+.app-user__info {
+  position: relative;
+  padding: 0 4%;
+  margin-right: 2%;
+}
+
 .app-user__content {
   position: relative;
-  display: flex;
   flex: 1;
 }
 
