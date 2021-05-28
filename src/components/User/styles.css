@@ -22,7 +22,8 @@
     flex: 1;
   }
 
-  .app-user__content {
-    min-height: 200px;
+  .app-user__info {
+    padding: 4%;
+    margin-right: 0;
   }
 }
