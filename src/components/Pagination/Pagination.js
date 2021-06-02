@@ -15,17 +15,19 @@ const Pagination = ({
   };
 
   return (
-    <ReactPaginate
-      forcePage={currentPage}
-      marginPagesDisplayed={0}
-      pageRangeDisplayed={perPage}
-      previousLabel={"<"}
-      nextLabel={">"}
-      pageCount={public_repos / perPage}
-      onPageChange={handlePageChange}
-      containerClassName={"pagination"}
-      activeClassName={"active"}
-    />
+    <div className="pagination__container">
+      <ReactPaginate
+        forcePage={currentPage}
+        marginPagesDisplayed={0}
+        pageRangeDisplayed={perPage}
+        previousLabel={"<"}
+        nextLabel={">"}
+        pageCount={public_repos / perPage}
+        onPageChange={handlePageChange}
+        containerClassName={"pagination"}
+        activeClassName={"active"}
+      />
+    </div>
   );
 };
 

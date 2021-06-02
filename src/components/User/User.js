@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 // components
 import UserInfo from "../UserInfo/UserInfo";
 import UserRepos from "../UserRepos";
+import Pagination from "../Pagination";
 
 import "./styles.css";
 
@@ -43,11 +44,14 @@ const User = ({
       <div className="app-user__content">
         <UserRepos
           repos={repos}
+          public_repos={public_repos}
+          loadinState={loadingUserRepos}
+        />
+        <Pagination
+          currentPage={currentPage}
           perPage={perPage}
           public_repos={public_repos}
-          currentPage={currentPage}
           fetchReposPerPage={fetchReposPerPage}
-          loadinState={loadingUserRepos}
         />
       </div>
     </div>

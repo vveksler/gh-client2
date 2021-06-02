@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+.pagination__container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 ul.pagination li {
   cursor: pointer;
   color: #808080;
@@ -13,7 +19,7 @@ ul.pagination li {
 
 ul.pagination li.active {
   color: white;
-  background-color: #0064EB;
+  background-color: #0064eb;
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 14px;
@@ -22,7 +28,7 @@ ul.pagination li.active {
 ul.pagination li.next,
 ul.pagination li.previous {
   font-weight: bold;
-  color: #0064EB;
+  color: #0064eb;
 }
 
 ul.pagination li.next {

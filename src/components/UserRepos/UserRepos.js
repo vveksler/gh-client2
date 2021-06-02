@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 // components
 import ReposItem from "../ReposItem";
-import Pagination from "../Pagination";
 import Loader from "../Loader";
 
 // icons
@@ -11,18 +10,7 @@ import empty from "../../assets/icons/empty.svg";
 
 import "./styles.css";
 
-const UserRepos = ({
-  repos: { data },
-  public_repos,
-  perPage,
-  currentPage,
-  fetchReposPerPage,
-  loadinState,
-}) => {
-  if (loadinState) {
-    return <Loader />;
-  }
-
+const UserRepos = ({ repos: { data }, public_repos, loadinState }) => {
   if (!data.length) {
     return (
       <div className="app-user-repos__not-found">
@@ -34,7 +22,9 @@ const UserRepos = ({
 
   return (
     <div className="app-user-repos">
-      {data && (
+      {loadinState ? (
+        <Loader />
+      ) : (
         <>
           <h2 className="app-user-repos__title">
             Repositories ({public_repos})
@@ -51,14 +41,6 @@ const UserRepos = ({
           </ul>
         </>
       )}
-      <div className="app-user-repos__pagination">
-        <Pagination
-          currentPage={currentPage}
-          perPage={perPage}
-          public_repos={public_repos}
-          fetchReposPerPage={fetchReposPerPage}
-        />
-      </div>
     </div>
   );
 };
@@ -68,9 +50,6 @@ UserRepos.propTypes = {
     data: PropTypes.array,
   }),
   public_repos: PropTypes.number,
-  perPage: PropTypes.number,
-  currentPage: PropTypes.number,
-  fetchReposPerPage: PropTypes.func,
   loadinState: PropTypes.bool,
 };
 

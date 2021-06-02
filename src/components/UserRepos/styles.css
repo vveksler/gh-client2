@@ -1,14 +1,13 @@
+.app-user-repos {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .app-user-repos__title {
   font-size: 32px;
   color: black;
   margin-bottom: 28px;
-}
-
-.app-user-repos__pagination {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex: 1;
 }
 
 .app-user-repos__not-found {
